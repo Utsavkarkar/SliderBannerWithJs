@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<hedad>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>slider</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body onload="first_load()">
+	<div class="container-fluid">
+		<div class="banner">
+			<img src="image/img1.jpg" class="w-100 img" id="img1">
+			<img src="image/img2.jpg" class="w-100 img" id="img2">
+			<img src="image/img3.jpg" class="w-100 img" id="img3">
+			<img src="image/img4.jpg" class="w-100 img" id="img4">
+			<img src="image/img5.jpg" class="w-100 img" id="img5">
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-2 text-center mt-1 ">
+				<input type="button" name="" value="previous" id="previous" class="btn border" onclick="previous()">
+			</div>
+			<div class="col-8">
+				<h3 id="number" class="text-center mt-1"></h3>
+			</div>
+			<div class="col-2 text-center mt-1 ">
+				<input type="button" name="" value="next" id="next" class="btn border" onclick="next()">
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		
+		let cnt=0;
+		function first_load(){
+			let img=document.getElementsByClassName('img');
+			for (var i = 0; i < img.length; i++) {
+			 img[i].style.display="none";
+			}
+			if(cnt == img.length-1){
+				document.getElementById('next').disabled=true;
+			}else{
+				document.getElementById('next').disabled=false;
+			}
+			if(cnt == 0){
+				document.getElementById('previous').disabled=true;
+			}else{
+				document.getElementById('previous').disabled=false;
+			}
+			img[cnt].style.display="block";
+			
+		} 
+		function next(){
+			cnt++;
+			first_load();
+		}
+		function previous(){
+			cnt--;
+			first_load();
+		}
+
+	</script>
+	<script type="" src="js/bootstrap.bundle.min.js" ></script>
+</body>
+</html>
